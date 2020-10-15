@@ -32,6 +32,7 @@ const obj = {
   [the_val]: 123
 }
 ```
+
 * `Object.assign()`
 * `Object.is()`
   * `Object.is(+0,-0) // false`
@@ -44,6 +45,7 @@ const obj = {
 * `Set`, `Map`, `Symbol`
 * `for-of`, 使用 `break` 终止循环
 * `Symbol.iterator` 实现 对象的 `for-of` 接口
+
 ```javascript
 const obj = {
   store: [0,1,2],
@@ -62,11 +64,12 @@ const obj = {
   }
 }
 ```
-<br />
+
 ```javascript
-cosnt todos = {
+const todos = {
   life: ['eat', 'sleep', 'hit beans'],
   learn: ['English', 'Math', 'Computer'],
+  
   [Symbol.iterator]: function *() {
     const all = [...this.life, ...this.learn]
     
@@ -76,13 +79,14 @@ cosnt todos = {
   }
 }
 ```
+
 * module
 * ES2016
   * `arr.includes(NaN)`
   * `const pow_val = 2 ** 10`
 * ES2017
   * `Object.values(o)`
-  * `Object.entries(0)`
+  * `Object.entries(o)`
   * `Object.getOwnPopertyDescriptors()`, 可用来复制对象属性, getter, setter 也可复制
   * `str.padStart(length, delimiter_char)` `str.padEnd(length, delimiter_char)`, 将字符串补齐到指定宽度
   * `async` `await`
