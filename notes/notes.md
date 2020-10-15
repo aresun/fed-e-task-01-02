@@ -140,4 +140,44 @@ const todos = {
   * 在作用域内 cache 全局变量
   * prototype 添加实例方法
   * 闭包 `closure_var = null`
+  * 避免用对象方法来获取对象值
   * `for` 循环 cache length
+  * `forEach` > `for` > `for-in`
+  * 添加节点使用 `document.createDocumentFragment()` 作为容器, 一次性添加新 `dom`
+  * 用已有节点添加相似节点时, `existed_dom.cloneNode()` 优于直接生成
+  * 创建对象时, 直接量优于 `new` 生成的对象
+### stack & heap
+* 执行栈
+  * EC execution context
+    * scope chain
+    * active object
+* 减少判断层级
+  * 将 `false` 条件提前, 减少层级
+* 减少作用域查找层级
+  * 层级越深, 块作用域越长
+  * cache 外层变量
+* 减少数据读取次数
+  * 多次访问同一属性时, cache 对象内部数据
+* 字面量与构造式
+  * 使用对象字面量创建对象优于 `new` 创建对象
+* 减少循环体内活动
+  * cache length
+  * `while(len--)`
+* 减少声明及语句数, 语句合并, 减少执行环境解释语句时间
+  * `var a = 1, b = 2;`
+  * `return ele.offsetWidth * ele.offsetHeight`
+* 惰性函数
+```javascript
+function addEvent(obj, type, fn) {
+ if(obj.addEventListener) {
+  addEvent = obj.addEventListener
+  obj.addEventListener(type, fn, false)
+ } else if (obj.attachEvent) {
+  addEvent = obj.attachEvent
+  obj.attachEvent('on' + type, fn)
+ } else {
+  addEvent = obj['on' + type] = fn
+ }
+}
+```
+* 事件绑定, 父 dom 代理 子 dom 事件
