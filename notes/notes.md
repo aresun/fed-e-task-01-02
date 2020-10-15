@@ -126,3 +126,18 @@ const todos = {
 * 回收算法
   * 引用计数
   * 标记清除
+  * 标记整理
+  * 增量标记
+* V8 引擎
+  * 分代回收
+  * 新生代 和 老生代
+* 内存性能检测工具
+  * 任务管理器
+  * timeline
+  * memory tab -> heap snapshot; 查看 detached dom
+* js 代码优化
+  * 全局变量
+  * 在作用域内 cache 全局变量
+  * prototype 添加实例方法
+  * 闭包 `closure_var = null`
+  * `for` 循环 cache length
